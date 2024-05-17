@@ -1,13 +1,15 @@
 <?xml version="1.0"?>
 <robot xmlns:xacro="http://ros.org/wiki/xacro">
   <xacro:macro name="sensor_kit_macro" params="parent x y z roll pitch yaw">
+
+    <!-- Create for our own sensors -->
     <xacro:include filename="$(find velodyne_description)/urdf/VLP-16.urdf.xacro"/>
     <xacro:include filename="$(find vls_description)/urdf/VLS-128.urdf.xacro"/>
     <xacro:include filename="$(find camera_description)/urdf/monocular_camera.xacro"/>
     <xacro:include filename="$(find imu_description)/urdf/imu.xacro"/>
 
     <xacro:arg name="gpu" default="false"/>
-    <xacro:arg name="config_dir" default="$(find sample_sensor_kit_description)/config"/>
+    <xacro:arg name="config_dir" default="$(find lomby_sensor_kit_description)/config"/>
 
     <xacro:property name="sensor_kit_base_link" default="sensor_kit_base_link"/>
 
@@ -24,7 +26,7 @@
     <xacro:property name="calibration" value="${xacro.load_yaml('$(arg config_dir)/sensor_kit_calibration.yaml')}"/>
 
     <!-- lidar -->
-    <xacro:VLS-128 parent="sensor_kit_base_link" name="velodyne_top" topic="/points_raw" hz="10" samples="220" gpu="$(arg gpu)">
+    <xacro:VLS-128 parent="sensor_kit_base_link" name="velodyne_top" topic="/sensing/lidar/hesai/pandar" hz="10" samples="220" gpu="$(arg gpu)">
       <origin
         xyz="${calibration['sensor_kit_base_link']['velodyne_top_base_link']['x']}
              ${calibration['sensor_kit_base_link']['velodyne_top_base_link']['y']}
