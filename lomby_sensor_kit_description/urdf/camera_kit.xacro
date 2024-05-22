@@ -22,7 +22,7 @@
     <xacro:property name="calibration" value="${xacro.load_yaml('$(arg config_dir)/sensor_kit_calibration.yaml')}"/>
 
     <!-- camera -->
-    <xacro:generic_camera 
+    <!-- <xacro:generic_camera 
       prefix="trafficlight_camera" 
       mass="0.1" 
       parent_link="base_link" 
@@ -32,6 +32,15 @@
       rpy="${calibration['camera_sensor_kit_base_link']['traffic_light_camera_link']['roll']}
             ${calibration['camera_sensor_kit_base_link']['traffic_light_camera_link']['pitch']}
             ${calibration['camera_sensor_kit_base_link']['traffic_light_camera_link']['yaw']}"
+    /> -->
+
+    <xacro:generic_camera 
+      prefix="trafficlight_camera" 
+      mass="0.1" 
+      parent_link="base_link" 
+      xyz="0.0 0.0 0.0"
+      rpy="0.0 0.0 0.0"
     />
+    
   </xacro:macro>
 </robot>
