@@ -2,24 +2,25 @@ sensor_kit_base_link:
   3d_lidar_base_link:
     x: 0.0
     y: 0.0
-    z: 0.0
+    z: 0.08
     roll: 0.0
     pitch: 0.0
-    yaw: 0.0
+    yaw: 3.141592
   gnss_link:
-    x: 0.0
+    x: -0.317
     y: 0.0
-    z: 0.0
+    z: -0.08
     roll: 0.0
     pitch: 0.0
     yaw: 0.0
   imu_link:
-    x: 0.0
+    x: -0.30
     y: 0.0
-    z: 0.0
+    z: -0.13
     roll: 0.0
     pitch: 0.0
     yaw: 0.0
+camera_sensor_kit_base_link:
   traffic_light_camera_link:
     x: 0.0
     y: 0.0
