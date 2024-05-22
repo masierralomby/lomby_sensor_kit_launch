@@ -23,7 +23,7 @@
     <xacro:property name="calibration" value="${xacro.load_yaml('$(arg config_dir)/sensor_kit_calibration.yaml')}"/>
 
     <!-- lidar -->
-    <xacro:pandar_xt32 parent="sensor_kit_base_link" name="3d_lidar" topic="/sensing/lidar/hesai/pandar" hz="10" samples="220" gpu="$(arg gpu)">
+    <xacro:PandarXT-32 parent="sensor_kit_base_link" name="3d_lidar" topic="/sensing/lidar/hesai/pandar" hz="10" samples="220" gpu="$(arg gpu)">
       <origin
         xyz="${calibration['sensor_kit_base_link']['3d_lidar_base_link']['x']}
              ${calibration['sensor_kit_base_link']['3d_lidar_base_link']['y']}
@@ -32,7 +32,7 @@
              ${calibration['sensor_kit_base_link']['3d_lidar_base_link']['pitch']}
              ${calibration['sensor_kit_base_link']['3d_lidar_base_link']['yaw']}"
       />
-    </xacro:pandar_xt32>
+    </xacro:PandarXT-32>
 
     <!-- gnss -->
     <xacro:imu_macro
