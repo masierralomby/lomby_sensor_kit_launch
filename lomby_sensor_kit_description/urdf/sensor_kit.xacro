@@ -23,16 +23,15 @@
     <xacro:property name="calibration" value="${xacro.load_yaml('$(arg config_dir)/sensor_kit_calibration.yaml')}"/>
 
     <!-- lidar -->
-    <xacro:PandarXT-32 parent="sensor_kit_base_link" name="3d_lidar" topic="/sensing/lidar/hesai/pandar" hz="10" samples="220" gpu="$(arg gpu)">
-      <origin
-        xyz="${calibration['sensor_kit_base_link']['3d_lidar_base_link']['x']}
-             ${calibration['sensor_kit_base_link']['3d_lidar_base_link']['y']}
-             ${calibration['sensor_kit_base_link']['3d_lidar_base_link']['z']}"
-        rpy="${calibration['sensor_kit_base_link']['3d_lidar_base_link']['roll']}
-             ${calibration['sensor_kit_base_link']['3d_lidar_base_link']['pitch']}
-             ${calibration['sensor_kit_base_link']['3d_lidar_base_link']['yaw']}"
-      />
-    </xacro:PandarXT-32>
+    <xacro:PandarXT-32 
+      name="3d_lidar" 
+      x="${calibration['sensor_kit_base_link']['3d_lidar_base_link']['x']}"
+      y="${calibration['sensor_kit_base_link']['3d_lidar_base_link']['y']}"
+      z="${calibration['sensor_kit_base_link']['3d_lidar_base_link']['z']}"
+      roll="${calibration['sensor_kit_base_link']['3d_lidar_base_link']['roll']}"
+      pitch="${calibration['sensor_kit_base_link']['3d_lidar_base_link']['pitch']}"
+      yaw="${calibration['sensor_kit_base_link']['3d_lidar_base_link']['yaw']}"
+    />
 
     <!-- gnss -->
     <xacro:imu_macro
@@ -45,7 +44,7 @@
       roll="${calibration['sensor_kit_base_link']['gnss_link']['roll']}"
       pitch="${calibration['sensor_kit_base_link']['gnss_link']['pitch']}"
       yaw="${calibration['sensor_kit_base_link']['gnss_link']['yaw']}"
-      fps="100"
+      fps="1"
     />
 
     <!-- imu -->
